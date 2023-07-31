@@ -1,0 +1,46 @@
+package money.jupiter.employeemanagement.controllers;
+
+import money.jupiter.employeemanagement.models.EmployeeData;
+import money.jupiter.employeemanagement.services.impl.EmployeeServiceImpl;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController()
+@RequestMapping("/jupiter/employees")
+
+public class EmployeeController {
+
+    private final EmployeeServiceImpl service;
+
+    public EmployeeController(EmployeeServiceImpl service) {
+        this.service = service;
+    }
+
+    @GetMapping("")
+    public ResponseEntity<List<EmployeeData>> getAllEmployees() {
+
+        return service.getAllEmployees();
+    }
+
+    @GetMapping("/{employeeId}")
+    public ResponseEntity<EmployeeData> getEmployeeById(@PathVariable String employeeId){
+        return service.getEmployeeById(employeeId);
+    }
+
+    @PostMapping("")
+    public  ResponseEntity<String> addEmployee(@RequestBody EmployeeData emp){
+        return service.addEmployee(emp);
+    }
+
+    @DeleteMapping("/{employeeId}")
+    public ResponseEntity<String> dropEmployee(@PathVariable String employeeId){
+        return service.dropEmployee(employeeId);
+    }
+
+    @PutMapping("")
+    public ResponseEntity<String> updateEmployee(@RequestBody EmployeeData emp){
+        return service.updateEmployee(emp);
+    }
+}

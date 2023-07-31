@@ -9,8 +9,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class EmployeeData {
 
-    private String employeeFirstName;
-    private String employeeLastName;
+    private String firstName;
+    private String lastName;
     private String employeeId;
 
 

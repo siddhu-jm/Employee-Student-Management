@@ -32,7 +32,7 @@ public class EmployeeServiceImpl implements money.jupiter.employeemanagement.ser
 
     @Override
     public ResponseEntity<String> addEmployee(EmployeeData emp){
-        if(emp.getEmployeeFirstName().isEmpty() || emp.getEmployeeLastName().isEmpty()){
+        if(emp.getFirstName().isEmpty() || emp.getLastName().isEmpty()){
            return  ResponseEntity.badRequest().body("Enter employee details");
         }
         else {
@@ -48,7 +48,7 @@ public class EmployeeServiceImpl implements money.jupiter.employeemanagement.ser
     }
     @Override
     public ResponseEntity<String> updateEmployee(EmployeeData emp){
-        if(emp.getEmployeeFirstName().isEmpty() || emp.getEmployeeLastName().isEmpty()){
+        if(emp.getFirstName().isEmpty() || emp.getLastName().isEmpty()){
             return  ResponseEntity.badRequest().body("Enter employee details");
         }
         else {

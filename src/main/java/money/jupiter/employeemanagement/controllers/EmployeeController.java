@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController()
-@RequestMapping("/jupiter/employees")
+@RequestMapping("/api")
 
 public class EmployeeController {
 
@@ -18,28 +18,28 @@ public class EmployeeController {
         this.service = service;
     }
 
-    @GetMapping("")
+    @GetMapping("/employees")
     public ResponseEntity<List<EmployeeData>> getAllEmployees() {
 
         return service.getAllEmployees();
     }
 
-    @GetMapping("/{employeeId}")
+    @GetMapping("/employees/{employeeId}")
     public ResponseEntity<EmployeeData> getEmployeeById(@PathVariable String employeeId){
         return service.getEmployeeById(employeeId);
     }
 
-    @PostMapping("")
+    @PostMapping("/employees")
     public  ResponseEntity<String> addEmployee(@RequestBody EmployeeData emp){
         return service.addEmployee(emp);
     }
 
-    @DeleteMapping("/{employeeId}")
+    @DeleteMapping("/employees/{employeeId}")
     public ResponseEntity<String> dropEmployee(@PathVariable String employeeId){
         return service.dropEmployee(employeeId);
     }
 
-    @PutMapping("")
+    @PutMapping("/employees")
     public ResponseEntity<String> updateEmployee(@RequestBody EmployeeData emp){
         return service.updateEmployee(emp);
     }
